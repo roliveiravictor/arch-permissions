@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        debug {
+
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username System.getenv('ARTIFACTORY_USERNAME')
+                password System.getenv('ARTIFACTORY_PASSWORD')
+            }
+
+            if (project.hasProperty('releaseVersion')) {
+                url 'http://' + System.getenv('ARTIFACTORY_ADDR') + '/repository/maven-releases/'
+            } else {
+                url 'http://' + System.getenv('ARTIFACTORY_ADDR') + '/repository/maven-snapshots/'
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            groupId 'br.com.stonetree.manifest'
+            artifactId 'permissions'
+
+            version mavenVersion
+
+            if (version.contains('RELEASE')) {
+                artifact source: "$buildDir/outputs/aar/authenticator-release.aar", extension: 'aar'
+            } else {
+                artifact source: "$buildDir/outputs/aar/authenticator-debug.aar", extension: 'aar'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:appcompat-v7:28.0.0"
+    implementation "com.android.support:support-annotations:28.0.0"
+
+    testImplementation 'junit:junit:4.12'
+
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}

@@ -1,0 +1,33 @@
+task ciBuildPro(dependsOn: [':authenticator:assembleRelease']) << {
+    println "-------- ciBuildPro"
+}
+
+task ciBuildDev(dependsOn: [':authenticator:assembleDebug']) << {
+    println "-------- ciBuildPre"
+}
+task ciTest(dependsOn: [':authenticator:test']) << {
+    println "-------- ciTest"
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+    }
+
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
