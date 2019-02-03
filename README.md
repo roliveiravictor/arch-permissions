@@ -19,9 +19,11 @@
 
 [7 - Usage](#usage)
 
-[8 - Contact](#contact)
+[8 - Gradle](#gradle)
 
-[9 - Prints](#prints)
+[9 - Contact](#contact)
+
+[10 - Prints](#prints)
 
 # Description
 
@@ -65,17 +67,17 @@
 
 # Usage
 
-  - 1. Choose available permission (i.e. CAMERA)
+  ** Choose available permission (i.e. CAMERA)
 
-  ```
+  ´´´
 
   Permission.CAMERA
 
-  ```
+  ´´´
 
-  - 2. Build device model
+  ** Build device model
 
-  ```
+  ´´´
 
   final Device device = new Device.Builder()
                   .setPermission(CAMERA)
@@ -83,11 +85,11 @@
                   .setActivity(this)
                   .build();
 
-  ```
+  ´´´
 
-  - 3. Implement permission callback
+  ** Implement permission callback
 
-  ```
+  ´´´
 
     @Override
     public void onPermissionGranted(Permission permission) {
@@ -100,16 +102,25 @@
 
     }
 
-  ```
+  ´´´
 
-  - 4. Request permission
+  ** Request permission
 
-  ```
+  ´´´
 
   Manifest.request(device);
 
-  ```
+  ´´´
 
+# Gradle
+
+    ´´´
+
+    implementation "br.com.stonetree.manifest:permissions:1.0.0"
+
+    ´´´
+
+    Note: Not uploaded on any repository. Needs, so far, to be imported locally.
 
 # Contact
 
