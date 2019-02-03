@@ -44,12 +44,10 @@
 
 # Overview
 
-  [//]: <> (![architecture.JPG](assets/architecture.png))
   - N/A
 
 # Composition
 
-  [//]: <> (Library:1.0.0)
   - Android.Support:appcompat-v7:28.0.0
   - Android.Support:support-annotations:28.0.0
 
@@ -59,37 +57,26 @@
 
 # Requirements
 
-  [//]: <> (minSdkVersion 19)
-  [//]: <> (targetSdkVersion 28)
-  [//]: <> (compileSdkVersion 28)
-  [//]: <> (buildToolsVersion 28.0.3)
-  - N/A
+  - minSdkVersion 19
+  - targetSdkVersion 28
+  - compileSdkVersion 28
+  - buildToolsVersion 28.0.3
 
 # Usage
 
-  ** Choose available permission (i.e. CAMERA)
+#### 1. Choose available permission (i.e. CAMERA)
 
-  ´´´
+      Permission.CAMERA
 
-  Permission.CAMERA
+#### 2. Build device model
 
-  ´´´
+      final Device device = new Device.Builder()
+                        .setPermission(CAMERA)
+                        .setCallback(this)
+                        .setActivity(this)
+                        .build();
 
-  ** Build device model
-
-  ´´´
-
-  final Device device = new Device.Builder()
-                  .setPermission(CAMERA)
-                  .setCallback(this)
-                  .setActivity(this)
-                  .build();
-
-  ´´´
-
-  ** Implement permission callback
-
-  ´´´
+#### 3. Implement permission callback
 
     @Override
     public void onPermissionGranted(Permission permission) {
@@ -102,25 +89,15 @@
 
     }
 
-  ´´´
+#### 4. Request permission
 
-  ** Request permission
-
-  ´´´
-
-  Manifest.request(device);
-
-  ´´´
+      Manifest.request(device);
 
 # Gradle
 
-    ´´´
-
     implementation "br.com.stonetree.manifest:permissions:1.0.0"
 
-    ´´´
-
-    Note: Not uploaded on any repository. Needs, so far, to be imported locally.
+######    Note: Not uploaded on any repository. Needs, so far, to be imported locally.
 
 # Contact
 
