@@ -78,16 +78,16 @@
 
 #### 3. Implement permission callback
 
-    @Override
-    public void onPermissionGranted(Permission permission) {
-        if (CAMERA.equals(permission))
-            openCamera();
-    }
+      @Override
+      public void onPermissionGranted(Permission permission) {
+          if (CAMERA.equals(permission))
+              openCamera();
+      }
 
-    @Override
-    public void onPermissionDenied(Permission permission) {
+      @Override
+      public void onPermissionDenied(Permission permission) {
 
-    }
+      }
 
 #### 4. Request permission
 
@@ -95,7 +95,7 @@
 
 # Gradle
 
-    implementation "br.com.stonetree.manifest:permissions:1.0.0"
+      implementation "br.com.stonetree.manifest:permissions:1.0.0"
 
 ######    Note: Not uploaded on any repository. Needs, so far, to be imported locally.
 
