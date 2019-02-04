@@ -1,11 +1,11 @@
-task ciBuildPro(dependsOn: [':authenticator:assembleRelease']) << {
+task ciBuildPro(dependsOn: [':permissions:assembleRelease']) << {
     println "-------- ciBuildPro"
 }
 
-task ciBuildDev(dependsOn: [':authenticator:assembleDebug']) << {
+task ciBuildDev(dependsOn: [':permissions:assembleDebug']) << {
     println "-------- ciBuildPre"
 }
-task ciTest(dependsOn: [':authenticator:test']) << {
+task ciTest(dependsOn: [':permissions:test']) << {
     println "-------- ciTest"
 }
 

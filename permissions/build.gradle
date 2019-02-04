@@ -48,9 +48,9 @@ publishing {
             version mavenVersion
 
             if (version.contains('RELEASE')) {
-                artifact source: "$buildDir/outputs/aar/authenticator-release.aar", extension: 'aar'
+                artifact source: "$buildDir/outputs/aar/permissions-release.aar", extension: 'aar'
             } else {
-                artifact source: "$buildDir/outputs/aar/authenticator-debug.aar", extension: 'aar'
+                artifact source: "$buildDir/outputs/aar/permissions-debug.aar", extension: 'aar'
             }
         }
     }
