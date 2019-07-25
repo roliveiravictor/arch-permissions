@@ -30,10 +30,12 @@ public class Request extends AppCompatActivity {
     }
 
     protected void fetchPermission() {
-        if (isPermissionAlreadyGranted())
+        if (isPermissionAlreadyGranted()) {
+            this.finish();
             callback.onPermissionGranted(permission);
-        else
+        } else {
             ActivityCompat.requestPermissions(this, new String[]{permission.getKey()}, permission.getValue());
+        }
     }
 
     private boolean isPermissionAlreadyGranted() {
