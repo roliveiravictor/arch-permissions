@@ -28,7 +28,6 @@
     <application>
 
         <activity
-            android:noHistory="true"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent"

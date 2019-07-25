@@ -13,6 +13,4 @@ public interface IComponentBuilder {
 
     IComponentBuilder setCallback(IManifestCallback callback);
 
-    IComponentBuilder setActivity(Activity activity);
-
 }

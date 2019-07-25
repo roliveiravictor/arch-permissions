@@ -2,8 +2,9 @@ package manifest.stonetree.com.br.permissions.feature;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import manifest.stonetree.com.br.permissions.R;
 import manifest.stonetree.com.br.permissions.constants.Permission;
@@ -14,8 +15,6 @@ public class Request extends AppCompatActivity {
     private IManifestCallback callback;
 
     private Permission permission;
-
-    //TODO - Enhace request to possibly be a fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +39,7 @@ public class Request extends AppCompatActivity {
     private boolean isPermissionAlreadyGranted() {
         return ActivityCompat.checkSelfPermission(this, permission.getKey()) == PackageManager.PERMISSION_GRANTED;
     }
+
 
     @Override
     public void onRequestPermissionsResult(int id, String[] permissions, int[] grantResults) {

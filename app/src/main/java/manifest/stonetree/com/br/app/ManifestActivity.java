@@ -2,7 +2,9 @@ package manifest.stonetree.com.br.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import manifest.stonetree.com.br.permissions.constants.Permission;
 import manifest.stonetree.com.br.permissions.feature.IManifestCallback;
@@ -21,10 +23,9 @@ public class ManifestActivity extends AppCompatActivity implements IManifestCall
         final Device device = new Device.Builder()
                 .setPermission(CAMERA)
                 .setCallback(this)
-                .setActivity(this)
                 .build();
 
-        Manifest.request(device);
+        Manifest.request(device, this);
     }
 
     @Override
@@ -42,5 +43,4 @@ public class ManifestActivity extends AppCompatActivity implements IManifestCall
         final Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivity(cameraIntent);
     }
-
 }
